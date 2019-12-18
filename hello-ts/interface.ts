@@ -1,18 +1,13 @@
-interface Point {
-  x: number,
-  y: number
+class Point {
+  x: number;
+  y: number;
+  
+  draw() {
+    // ...
+  }
+
+  getDistance(another: Point) {
+    
+  }
 }
 
-                            // Line anotation
-/* let drawPoint = (point: { x: number, y: number }) => {
-  // ...
-} */
-
-let drawPoint = (point: Point) => {
-  // ...
-}
-
-drawPoint({
-  x: 1,
-  y: 2
-})
