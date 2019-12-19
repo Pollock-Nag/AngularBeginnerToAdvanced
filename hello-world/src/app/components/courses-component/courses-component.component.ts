@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CoursesService } from './courses.service';
 @Component({
   selector: 'app-courses-component',
   templateUrl: './courses-component.component.html',
@@ -10,9 +10,11 @@ export class CoursesComponentComponent implements OnInit {
   title = 'List of Courses';
   courses;
 
-  // Logic for calling an HTTP Service 
+  // Logic for calling an HTTP Service
 
-  constructor() { }
+  constructor(service: CoursesService) {
+    this.courses = service.getCourses();
+  }
 
   ngOnInit() {
   }
