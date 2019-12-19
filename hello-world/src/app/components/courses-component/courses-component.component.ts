@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CoursesComponentComponent implements OnInit {
 
   title = 'List of Courses';
-  courses = ['course1', 'course2', 'course3'];
+  courses;
+
+  // Logic for calling an HTTP Service 
 
   constructor() { }
 
