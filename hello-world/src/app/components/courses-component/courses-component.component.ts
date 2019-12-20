@@ -8,7 +8,9 @@ import { CoursesService } from './courses.service';
 export class CoursesComponentComponent implements OnInit {
 
   title = 'List of Courses';
+  imageUrl = 'http://lorempixel.com/400/200';
   courses;
+  colSpan = 2;
 
   // Logic for calling an HTTP Service
 

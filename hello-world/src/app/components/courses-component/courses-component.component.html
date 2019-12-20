@@ -1,4 +1,14 @@
 <h2>{{title}}</h2>
 <ul>
   <li *ngFor="let course of courses">{{course}}</li>
+  <img src="{{imgUrl}}" alt="">
+  <img [src]="imgUrl" alt="">
 </ul>
+
+<table>
+  <tr>
+    <td [attr.colspan]="colSpan"></td>
+  </tr>
+
+  <button class="btn btn-primary">save</button>
+</table>
