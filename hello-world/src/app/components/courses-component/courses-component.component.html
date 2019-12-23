@@ -1,0 +1,49 @@
+<h2>{{title}}</h2>
+<ul>
+  <li *ngFor="let course of courses">{{course}}</li>
+  <img src="{{imgUrl}}" alt="">
+  <img [src]="imgUrl" alt="">
+</ul>
+
+<table class="table">
+  <tr>
+    <td [attr.colspan]="colSpan"></td>
+  </tr>
+</table>
+<div class="row">
+  <h2>Class Binding - Style Binding</h2>
+  <button class="btn btn-primary" [class.active]="isActive"> class binding </button> <br>
+  <button class="btn btn-primary" [style.backgroundColor]="isActive ? 'peru' : 'pink' "> Style Binding </button> <br>
+  <button class="btn btn-success" (click)="onSave($event)"> event binding </button> <br>
+  <input type="text" #texto class="form-control" (keyup.enter)="onKeyUp(texto.value)"> <br>
+</div>
+<div class="row">
+  <h2>Event Binding</h2>
+    <div class="form-group">
+        <label for="">one way</label>
+        <input type="email" [value]="email" class="form-control" (keyup.enter)="onKeyUpTwoWayBinding(email)">
+    </div>
+    <div class="form-group">
+        <label for="">two way binding - 1st option</label>
+        <input type="email" [value]="email" class="form-control" (keyup.enter)="email = $event.target.value; onKeyUpTwoWayBinding()">
+    </div>
+  
+    <div class="form-group">
+        <label for="">two way binding - ngModel</label>
+        <input class="form-control" type="email" [(ngModel)]="email" (keyup.enter)="onWayNgModel()">
+    </div>
+</div>
+
+<hr>
+<div class="row">
+  <h2>Pipes</h2>
+  <p>{{ course.title | uppercase}}<br>
+    {{ course.title | lowercase}}<br>
+  {{ course.students | number }} <br> 
+  {{ course.rating | number:'1.2-2' }} <br>
+  {{ course.price | currency:'USD':true:'3.2-2' }} <br>
+  {{ course.releaseDate | date:'shortDate'}}<br>
+  {{ course.releaseDate | date:'longDate'}}</p> <br>
+  <p>{{ texto | summary:100 }}</p>
+</div>
+
