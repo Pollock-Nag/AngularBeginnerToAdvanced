@@ -55,3 +55,15 @@
     {{course.name}}
   </li>
 </ul>
+
+<hr>
+<h1>OngStyle</h1>
+
+<button
+  [ngStyle]="{
+    'backgroundColor': canSave ? 'blue' : 'gray',
+    'color': canSave ? 'white' : 'black',
+    'fontWeight': canSave ? 'bold' : 'normal'
+  }">
+  Save
+</button>
