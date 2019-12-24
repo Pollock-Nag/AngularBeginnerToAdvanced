@@ -21,6 +21,13 @@ export class AppComponent {
     { id: 4, name: 'Course 4'},
   ];
 
+  task = {
+    title: 'Review application',
+    assignee: {
+      name: 'Jorge Eliécer'
+    }
+  }
+
   coursesLoad;
 
   onAdd() {
