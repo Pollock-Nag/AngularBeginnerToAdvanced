@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'directives';
+  courses = [1, 2, 3];
 }
