@@ -10,17 +10,15 @@ import { UsernameValidations } from './username.validator';
 export class SignupFormComponent implements OnInit {
 
   form = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      UsernameValidations.cannotContainSpace,
-      UsernameValidations.shouldBeUnique
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3)
-    ])
+    username: new FormControl('', Validators.required, UsernameValidations.shouldBeUnique),
+    password: new FormControl('', Validators.required)
   });
+
+  login() {
+    this.form.setErrors({
+      invalidLogin: true,
+    });
+  }
 
   // Properties
   get username() {
