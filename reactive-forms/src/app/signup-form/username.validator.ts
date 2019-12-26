@@ -8,4 +8,14 @@ export class UsernameValidations {
       return null;
     }
   }
+  static shouldBeUnique(control: AbstractControl): ValidationErrors | null {
+    setTimeout(() => {
+      if (control.value === 'jorge') {
+        return { shouldBeUnique: true };
+      } else {
+        return null;
+      }
+     }, 2000);
+     return null;
+  }
 }
