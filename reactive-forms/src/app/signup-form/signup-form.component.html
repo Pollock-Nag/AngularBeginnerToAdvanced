@@ -10,6 +10,8 @@
         <div *ngIf="username.errors.required">Username is required.</div>
         <div *ngIf="username.errors.minLength">Minimum {{username.errors.minLength.requiredLength}} characters</div>
         <div *ngIf="username.errors.cannotContainSpace">Usernamen can not contain space</div>
+        <div *ngIf="username.errors.shouldBeUnique">Username is already taken.</div>
+
       </div>
   </div>
   <div class="form-group">
