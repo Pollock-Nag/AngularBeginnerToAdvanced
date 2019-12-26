@@ -13,3 +13,25 @@
       </li>
     </ul>
 </form>
+<hr>
+<h1>Form Array - formName</h1>
+<form [formGroup]="formName">
+  <input
+    class="form-control"
+    formControlName="name">
+  <div formGroupName="contact">
+    <input
+      class="form-control"
+      formControlName="email">
+    <input
+      class="form-control"
+      formControlName="phone">
+  </div>
+  <ul class="list-group">
+      <li
+      *ngFor="let topic of topics.controls"
+      class="list-group-item">
+      {{ topic.value }}
+    </li>
+  </ul>
+</form>
