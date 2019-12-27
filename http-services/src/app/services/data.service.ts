@@ -38,7 +38,7 @@ export class DataService {
   delete(id) {
     return this.http.delete(this.url + '/' + id).pipe(
       catchError(this.handleError),
-      map(response => response)
+       map(response => response)
     );
   }
 
