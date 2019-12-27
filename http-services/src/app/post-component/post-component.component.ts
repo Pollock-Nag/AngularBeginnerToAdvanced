@@ -20,9 +20,6 @@ export class PostComponentComponent implements OnInit {
     .subscribe(
       response => {
         this.posts = response as any;
-    }, error => {
-        alert('An unexpected error ocurred.');
-        console.log(`An unexpected error ocurred in ${this.ngOnInit} ${error}`);
     });
   }
 
@@ -40,8 +37,7 @@ export class PostComponentComponent implements OnInit {
           if (error instanceof BadInput) {
             /* this.form.setErrors(error.originalError); */
           } else {
-            alert('An unexpected error ocurred.');
-            console.log(`An unexpected error ocurred in ${this.createPost} ${error}`);
+            throw error;
           }
       });
   }
@@ -51,13 +47,10 @@ export class PostComponentComponent implements OnInit {
       .subscribe(
         (response: any) => {
           console.log('updatePost', response as any);
-      }, error => {
-          alert('An unexpected error ocurred.');
-          console.log(`An unexpected error ocurred in ${this.updatePost} ${error}`);
       });
   }
   deletePost(post) {
-    this.service.deletePost(365)
+    this.service.deletePost(345)
       .subscribe(
          (response: any) => {
           const index = this.posts.indexOf(post);
@@ -68,8 +61,7 @@ export class PostComponentComponent implements OnInit {
             alert('This post has already been deleted');
             console.log(`item deleted ${post.id}`);
           } else {
-            alert('An unexpected error ocurred.');
-            console.log(`An unexpected error ocurred in ${this.deletePost} ${error}`);
+            throw error;
           }
       });
   }
