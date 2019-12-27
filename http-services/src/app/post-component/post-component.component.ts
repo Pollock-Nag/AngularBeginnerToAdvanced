@@ -22,7 +22,7 @@ export class PostComponentComponent {
     const post = { title: input.value };
     input.value = '';
     this.http.post(this.url, JSON.stringify(post))
-      .subscribe(response => {
+      .subscribe((response: any) => {
         response = response as Object;
         post['id'] = response.id;
         this.posts.splice(0, 0, post);
