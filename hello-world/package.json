@@ -24,6 +24,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "rxjs": "^6.5.4",
+    "serialize-javascript": "^2.1.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
