@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { AppError } from '../common/app-error';
 import { BadInput } from '../common/bad-input';
 import { NotFoundError } from '../common/not-found-error';
+import { Http } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'

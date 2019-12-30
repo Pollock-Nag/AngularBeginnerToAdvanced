@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FollowersComponent } from './components/followers/followers.component';
@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { GithubFollowersService } from './services/github-followers.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PostsComponent } from './components/posts/posts.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'followers/:id', component: GithubProfileComponent },
@@ -32,9 +34,8 @@ import { PostsComponent } from './components/posts/posts.component';
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent }
     ]),
-    HttpClientModule
   ],
-  providers: [],
+  providers: [ GithubFollowersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
