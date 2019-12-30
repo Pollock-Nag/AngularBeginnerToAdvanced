@@ -6,7 +6,15 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="navbar-nav">
       <li routerLinkActive="active current">
-        <a class="nav-item nav-link" routerLink="/followers">Followers <span class="sr-only">(current)</span></a>
+        <a
+          class="nav-item nav-link"
+          routerLink="/followers"
+          [queryParams]="{ page: 1, order: 'newest'}">
+          Followers 
+          <span class="sr-only">
+            (current)
+          </span>
+      </a>
       </li>
       <li routerLinkActive="active current">
         <a class="nav-item nav-link" routerLink="/posts">Posts</a>
