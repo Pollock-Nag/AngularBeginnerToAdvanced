@@ -36,7 +36,7 @@ import { BaseRequestOptions } from '@angular/http';
       { path: '', component: HomeComponent },
       { path: 'admin', component: AdminComponent },
       { path: 'login', component: LoginComponent },
-      { path: '', component: NoAccessComponent },
+      { path: 'no-access', component: NoAccessComponent },
       { path: '**', component: NotFoundComponent}
     ])
   ],
@@ -44,7 +44,7 @@ import { BaseRequestOptions } from '@angular/http';
     OrderService,
     AuthService,
 
-    // Fake Backend
+    // Providers: Fake Backend
     fakeBackendProvider,
     MockBackend,
     BaseRequestOptions
