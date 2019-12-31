@@ -18,6 +18,8 @@ import { fakeBackendProvider } from './helpers/fake-backend';
 import { MockBackend } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
+import { AuthGuard } from './services/auth-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,11 @@ import { BaseRequestOptions } from '@angular/http';
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'admin', component: AdminComponent },
+      {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AuthGuard]
+      },
       { path: 'login', component: LoginComponent },
       { path: 'no-access', component: NoAccessComponent },
       { path: '**', component: NotFoundComponent}
@@ -43,6 +49,7 @@ import { BaseRequestOptions } from '@angular/http';
   providers: [
     OrderService,
     AuthService,
+    AuthGuard,
 
     // Providers: Fake Backend
     fakeBackendProvider,
