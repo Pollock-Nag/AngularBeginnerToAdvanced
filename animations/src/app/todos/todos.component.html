@@ -6,8 +6,10 @@
 
 <div *ngIf="items" class="list-group" >
   <button type="button"
-      *ngFor="let item of items"
-      (click)="removeItem(item)"
-      class="list-group-item"
-      >{{ item }}</button>
+    @slide
+    *ngFor="let item of items"
+    (click)="removeItem(item)"
+    class="list-group-item">
+    {{ item }}
+  </button>
 </div> 
