@@ -1,11 +1,13 @@
-<nav class="navbar navbar-default">
+<nav
+[style.backgroundColor]="backgroundColor"
+  class="navbar navbar-light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a routerLink="/">Home</a>
         </li>
-        <li routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active">
           <a routerLink="/followers">Followers</a>
         </li>
       </ul>
