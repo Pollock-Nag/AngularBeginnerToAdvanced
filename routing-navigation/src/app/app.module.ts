@@ -1,8 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { GithubFollowersComponent } from './components/github-followers/github-followers.component';
@@ -12,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { GithubFollowersService } from './services/github-followers.service';
+
 
 @NgModule({
   declarations: [
