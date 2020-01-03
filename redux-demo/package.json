@@ -24,10 +24,12 @@
     "@angular/router": "^6.1.0",
     "@types/redux": "3.6.0",
     "core-js": "^2.5.4",
+    "immutable": "^4.0.0-rc.12",
     "ng2-redux": "^5.1.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "rxjs": "^6.3.3",
+    "tassign": "^1.0.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
