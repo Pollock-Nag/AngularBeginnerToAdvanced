@@ -1,32 +1,43 @@
-import { trigger, transition, state, style, animate, keyframes } from '@angular/animations';
+import { trigger, transition, state, animation, style, animate, keyframes, useAnimation } from '@angular/animations';
 
-export let slide = trigger('slide', [
+export let bounceOutLeftAnimation = animation(
+  animate('0.5s ease-out', keyframes([
+    style({
+      offset: .2,
+      opacity: 1,
+      transform: 'translateX(20px)'
+    }),
+    style({
+      offset: 1,
+      opacity: 0,
+      transform: 'translateX(-100%)'
+    })
+  ]))
+);
+export let todoAnimation = trigger('todoAnimation', [
   transition(':enter', [
     style({ transform: 'translateX(-10px)' }),
     animate(500)
   ]),
 
-  transition(':leave', [
-    animate('0.5s cubic-bezier(.61, .29, .07, 1.02)', keyframes([
-      style({
-        offset: .2,
-        opacity: 1,
-        transform: 'translateX(20px)'
-      }),
-      style({
-        offset: 1,
-        opacity: 0,
-        transform: 'translateX(-100%)'
-      })
-    ]))
-  ])
+  transition(':leave', useAnimation(bounceOutLeftAnimation))
 ]);
 
+export let fadeInAnimation = animation([
+  style({ opacity: 0 }),
+  animate('{{ duration }} {{ easing }}')
+], {
+  params: {
+    duration: '2s',
+    easing: 'ease-out'
+  }
+});
+
 export let fade = trigger('fade', [
-
-  state('void', style({ opacity: 0 })),
-
-  transition('void <=> *', [
-    animate(1500)
+  transition(':enter', [
+    useAnimation(fadeInAnimation)
+  ]),
+  transition(':leave', [
+    animate(1500, style({ opacity: 0 }))
   ])
 ]);
