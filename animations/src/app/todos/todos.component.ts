@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
-import { trigger, transition, style, useAnimation, animate } from '@angular/animations';
+import { trigger, transition, style, useAnimation, animate, query, animateChild } from '@angular/animations';
 import { bounceOutLeftAnimation, fadeInAnimation } from '../animations';
 @Component({
   selector: 'todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations: [
+    trigger('todosAnimation', [
+      transition(':enter', [
+        query('h1', [
+          style({ transform: 'translateY(-20px)'}),
+          animate(1000)
+        ]),
+        query('@todoAnimation', animateChild())
+      ])
+    ]),
     trigger('todoAnimation', [
       transition(':enter', [
         useAnimation(fadeInAnimation, {
@@ -16,7 +25,7 @@ import { bounceOutLeftAnimation, fadeInAnimation } from '../animations';
       ]),
       transition(':leave', [
         style({ backgroundColor: 'red' }),
-        animate(1000),
+        animate(500),
         useAnimation(bounceOutLeftAnimation)
       ])
     ])
@@ -37,4 +46,7 @@ export class TodosComponent {
     const index = this.items.indexOf(item);
     this.items.splice(index, 1);
   }
+  // Angular Animation Callbacks
+  animationStarted($event) { console.log($event); }
+  animationDone($event) { console.log($event); }
 }
