@@ -7,6 +7,6 @@ describe('compute', () => {
   });
   it('should increment the input if it is positive', () => {
     const result = compute(1);
-    expect(result).toBe(-2);
+    expect(result).toBe(2);
   });
 });
