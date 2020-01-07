@@ -1,3 +1,6 @@
+<h1>Dashboard</h1>
+<p> last Updated: {{ lastUpdate | date:'mediumTime' }} </p>
+<p> total items: {{ todos }} </p>
 <p>
-  todo-dashboard works!
+  <button (click)="clearTodos()">Delete all</button>
 </p>
