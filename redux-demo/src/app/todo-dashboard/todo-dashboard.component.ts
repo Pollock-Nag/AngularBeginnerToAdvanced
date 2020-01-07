@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { TodoService } from '../todo.service';
+import { NgRedux, select } from '@angular-redux/store';
+import { IAppState } from '../store';
+import { CLEAR_TODO } from '../actions';
 
 @Component({
   selector: 'app-todo-dashboard',
@@ -7,7 +10,10 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./todo-dashboard.component.css']
 })
 export class TodoDashboardComponent {
-  todos: number;
+
+  // With Service
+
+  /* todos: number;
   lastUpdate;
   constructor(private service: TodoService) {
     this.todos = service.getTodos().length;
@@ -33,5 +39,15 @@ export class TodoDashboardComponent {
   }
   clearTodos() {
     this.service.clearTodos();
+  } */
+
+  // With Redux
+  @select() todos;
+  @select() lastUpdate;
+
+  constructor(private ngRedux: NgRedux<IAppState>) {}
+
+  clearTodos() {
+    this.ngRedux.dispatch({ type: CLEAR_TODO });
   }
 }

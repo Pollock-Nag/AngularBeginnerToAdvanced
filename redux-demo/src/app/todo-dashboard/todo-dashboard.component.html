@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
-<p> last Updated: {{ lastUpdate | date:'mediumTime' }} </p>
-<p> total items: {{ todos }} </p>
+<p> last Updated: {{ (lastUpdate | async) | date:'mediumTime' }} </p>
+<p> total items: {{ (todos | async).length }} </p>
 <p>
   <button (click)="clearTodos()">Delete all</button>
 </p>

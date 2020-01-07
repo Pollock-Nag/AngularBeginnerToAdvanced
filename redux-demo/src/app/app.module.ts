@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
+/* import { IAppState, rootReducer, INITIAL_STATE_COUNTER } from './store.counter'; */
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { AppComponent } from './app.component';
