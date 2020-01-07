@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
-import { IAppState } from './store';
+import { IAppState } from './store.counter';
 import { INCREMENT } from './actions';
 
 
