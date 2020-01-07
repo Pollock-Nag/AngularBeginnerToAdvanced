@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { TodoService } from '../todo.service';
 import { NgRedux, select } from '@angular-redux/store';
-import { IAppState } from '../store';
-import { CLEAR_TODO } from '../actions';
+import { Component } from '@angular/core';
+import { IAppState } from '../../store';
+import { CLEAR_TODO } from '../../tasking/actions';
 
 @Component({
   selector: 'app-todo-dashboard',
