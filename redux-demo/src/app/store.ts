@@ -1,29 +1,18 @@
-import { tassign } from 'tassign';
-import { INCREMENT, DECREMENT } from './actions';
-import { ITaskinState, TASKING_INITIAL_STATE } from './tasking/store';
+import { IMessagingState, MESSAGING_INITIAL_STATE, messagingReducer } from './messaging/store';
+import { ITaskinState, TASKING_INITIAL_STATE, taskingReducer } from './tasking/store';
+import { combineReducers } from 'redux';
 
 export interface IAppState {
   tasking: ITaskinState;
-  newMessages: number;
+  newMessages: IMessagingState;
 }
 
 export const INITIAL_STATE: IAppState = {
   tasking: TASKING_INITIAL_STATE,
-  newMessages: 0
+  newMessages: MESSAGING_INITIAL_STATE
 };
 
-function increment(state, action) {
-  return tassign(state, { newMessages: state.newMessages + 1 });
-}
-
-function decrement(state, action) {
-  return tassign(state, { newMessages: state.newMessages - 1 });
-}
-
-export function rootReducer(state: IAppState, action): IAppState {
-  switch (action.type) {
-    case INCREMENT: return increment(state, action);
-    case DECREMENT: return decrement(state, action);
-  }
-  return state;
-}
+export const rootReducer = combineReducers({
+  tasking: taskingReducer,
+  newMessages: messagingReducer
+});
