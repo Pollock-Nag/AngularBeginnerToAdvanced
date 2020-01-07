@@ -1,15 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-dashboard',
   templateUrl: './todo-dashboard.component.html',
   styleUrls: ['./todo-dashboard.component.css']
 })
-export class TodoDashboardComponent implements OnInit {
+export class TodoDashboardComponent {
+  todos: number;
+  lastUpdate;
+  constructor(private service: TodoService) {
+    this.todos = service.getTodos().length;
 
-  constructor() { }
+    service.todoAdded.subscribe(() => {
+      this.todos++;
+      this.lastUpdate = new Date();
+    });
 
-  ngOnInit() {
+    service.todoRemoved.subscribe(() => {
+      this.todos--;
+      this.lastUpdate = new Date();
+    });
+
+    service.todoToggled.subscribe(() => {
+      this.lastUpdate = new Date();
+    });
+
+    service.todosCleared.subscribe(() => {
+      this.todos = 0;
+      this.lastUpdate = new Date();
+    });
   }
-
+  clearTodos() {
+    this.service.clearTodos();
+  }
 }

@@ -5,6 +5,7 @@ import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store'
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDashboardComponent } from './todo-dashboard/todo-dashboard.component';
+import { TodoService } from './todo.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TodoDashboardComponent } from './todo-dashboard/todo-dashboard.componen
     BrowserModule,
     NgReduxModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
