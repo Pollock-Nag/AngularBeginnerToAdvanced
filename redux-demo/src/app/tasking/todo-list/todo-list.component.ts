@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-import { TodoService } from '../todo.service';
 import { NgRedux, select } from '@angular-redux/store';
-import { IAppState } from '../store';
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions';
-import { REFERENCE_PREFIX } from '@angular/compiler/src/render3/view/util';
+import { Component } from '@angular/core';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../actions';
+import { IAppState } from '../../store';
 
 @Component({
   selector: 'app-todo-list',
