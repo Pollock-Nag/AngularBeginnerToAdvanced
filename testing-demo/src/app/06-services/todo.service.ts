@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 export class TodoService {
@@ -13,7 +13,7 @@ export class TodoService {
       );
   }
 
-  getTodos() { 
+  getTodos() {
     return this.http.get('...')
       .pipe(
         map(r => r)

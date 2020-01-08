@@ -13,7 +13,7 @@ describe('TodoFormComponent', () => {
   });
 
   it('should make the name control required', () => {
-    let control = component.form.get('name');
+    const control = component.form.get('name');
 
     control.setValue('');
 
