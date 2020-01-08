@@ -2,6 +2,6 @@ import { greet } from './greet';
 
 describe('greet', () => {
   it('should include the name in the message', () => {
-    expect(greet('jorge')).toBe('Welcome jorge');
+    expect(greet('jorge')).toContain('jorge');
   });
 });
